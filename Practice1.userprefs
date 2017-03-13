@@ -1,0 +1,10 @@
+﻿<Properties StartupConfiguration="{0393D583-541C-43B7-8693-ABD7B6548E6F}|Default">
+  <MonoDevelop.Ide.ItemProperties.Practice1 AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.DeviceDefault" PreferredExecutionTarget="Android.G4AXGV2855703NG" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench />
+  <MultiItemStartupConfigurations />
+</Properties>

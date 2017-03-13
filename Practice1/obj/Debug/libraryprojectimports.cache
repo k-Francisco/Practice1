@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars></Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Refractored.FloatingActionButton\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.CardView\library_project_imports\res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Refractored.FloatingActionButton\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Refractored.FloatingActionButton.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\Xamarin Projects\Practice1\Practice1\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.CardView.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>
