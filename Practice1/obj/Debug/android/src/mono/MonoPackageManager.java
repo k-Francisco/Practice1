@@ -112,6 +112,7 @@ class MonoPackageManager_Resources {
 		"Microsoft.Office365.SharePoint.Portable.dll",
 		"Microsoft.Spatial.dll",
 		"Newtonsoft.Json.dll",
+		"Refractored.Controls.CircleImageView.dll",
 		"Refractored.FloatingActionButton.dll",
 		"System.Spatial.dll",
 		"Xamarin.Android.Support.Compat.dll",

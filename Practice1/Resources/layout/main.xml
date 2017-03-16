@@ -7,7 +7,8 @@
 <!-- The main content view -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
         <android.support.design.widget.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -40,6 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemTextColor="@color/menu_text_color"
+        app:itemIconTint="@color/menu_text_color"
+        app:itemBackground="@drawable/menu_background_color"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
 </android.support.v4.widget.DrawerLayout>

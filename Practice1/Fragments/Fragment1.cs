@@ -20,7 +20,7 @@ namespace Practice1.Fragments
         taskCompilation mPhotoAlbum;
         PhotoAlbumAdapter mAdapter;
         ListItemModels myLists;
-       
+        
 
         public override void OnCreate(Bundle savedInstanceState)
         {

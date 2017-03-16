@@ -25,5 +25,6 @@ namespace Practice1.Fragments
             var ignored = base.OnCreateView(inflater, container, savedInstanceState);
             return inflater.Inflate(Resource.Layout.fragment2, null);
         }
+
     }
 }

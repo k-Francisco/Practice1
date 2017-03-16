@@ -6,7 +6,8 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@style/MyTheme" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
-    <activity android:icon="@drawable/icon" android:label="Home" android:launchMode="singleTop" android:name="md51ac77611d4a3253ca6acbb22893ed677.MainActivity">
+    <activity android:label="Home" android:theme="@style/MyTheme" android:name="md51ac77611d4a3253ca6acbb22893ed677.MainActivity" />
+    <activity android:icon="@drawable/icon" android:label="SharePoint Mobile" android:launchMode="singleTop" android:name="md51ac77611d4a3253ca6acbb22893ed677.splash">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

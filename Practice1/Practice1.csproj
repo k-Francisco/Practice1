@@ -102,6 +102,10 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Refractored.Controls.CircleImageView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Refractored.Controls.CircleImageView.1.0.1\lib\MonoAndroid10\Refractored.Controls.CircleImageView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Refractored.FloatingActionButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Refractored.FloatingActionButton.1.3.0\lib\MonoAndroid10\Refractored.FloatingActionButton.dll</HintPath>
       <Private>True</Private>
@@ -170,15 +174,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Adapters\home.cs" />
     <Compile Include="Adapters\task.cs" />
+    <Compile Include="Fragments\Approvals.cs" />
     <Compile Include="Fragments\Fragment1.cs" />
     <Compile Include="Fragments\Fragment2.cs" />
+    <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Helper\AuthenticationHelper.cs" />
     <Compile Include="Models\MyTasks.cs" />
     <Compile Include="Models\RetrievablesModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
+    <Compile Include="Activities\splash.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -201,6 +209,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\task_card.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\splash.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="Service References\Office365\ConnectedService.json" />
@@ -239,6 +250,21 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu.png" />
     <AndroidResource Include="Resources\drawable-hdpi\plus.png" />
     <AndroidResource Include="Resources\drawable-hdpi\sample.jpeg" />
+    <AndroidResource Include="Resources\drawable-hdpi\splogo.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\home_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\project_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tasks_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\approvals_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\timesheet_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\settings_nav.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logout_nav.png" />
+    <AndroidResource Include="Resources\drawable\menu_background_color.xml" />
+    <AndroidResource Include="Resources\color\menu_text_color.xml" />
+    <AndroidResource Include="Resources\layout\fragment_home.xml" />
+    <AndroidResource Include="Resources\layout\home_recycler.xml" />
+    <AndroidResource Include="Resources\layout\fragment_project.xml" />
+    <AndroidResource Include="Resources\layout\project_recycler_grid.xml" />
+    <AndroidResource Include="Resources\drawable\rounded_textview.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

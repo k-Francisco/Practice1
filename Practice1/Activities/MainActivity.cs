@@ -22,21 +22,31 @@ using System.Collections.Generic;
 using Practice1.Adapters;
 using Practice1.Models;
 using Android.Util;
+using Android.Net;
 
 namespace Practice1.Activities
 {
-    [Activity(Label = "Home", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon")]
+    [Activity(Label = "Home", Theme ="@style/MyTheme")]
     public class MainActivity : BaseActivity
     {
-        private static Fragment1 projects;
-        private static Fragment2 tasks;
+        //setting statics
+        private static Fragment1 projects = new Fragment1();
+        private static Fragment2 tasks = new Fragment2();
+        private static HomeFragment home = new HomeFragment();
         private static string siteUrl = "https://sharepointevo.sharepoint.com/sites/mobility";
         private static string restUrl = "/_api/web/lists/getbytitle('MobilePractice')/items";
+
+        //setting private views
+        private TextView mFullName;
+        private TextView mEmail;
+
+        //setting idk
         ListItemModels myList;
         AuthenticationResult authResult;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
         FloatingActionButton addItems;
+        
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -56,13 +66,16 @@ namespace Practice1.Activities
         {
             base.OnCreate(savedInstanceState);
 
+            init();
             await login();
             await fetchItems();
-
-            projects = new Fragment1();
-            tasks = new Fragment2();
             projects.setParentActivity(myList);
-     
+        }
+
+        private void init()
+        {
+            
+
             drawerLayout = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
             //Set hamburger items menu
@@ -70,6 +83,11 @@ namespace Practice1.Activities
 
             //setup navigation view
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            navigationView.SetCheckedItem(Resource.Id.nav_home_1);
+            mFullName = navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.tvHeaderFullName);
+            mEmail = navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.tvHeaderEmail);
+            
+
 
             //handle navigation
             navigationView.NavigationItemSelected += (sender, e) =>
@@ -80,19 +98,36 @@ namespace Practice1.Activities
                 {
                     case Resource.Id.nav_home_1:
                         switchFragment(0);
+                        SupportActionBar.SetTitle(Resource.String.Home);
                         break;
                     case Resource.Id.nav_home_2:
                         switchFragment(1);
+                        SupportActionBar.SetTitle(Resource.String.Projects);
                         break;
+                    case Resource.Id.nav_home_3:
+                        SupportActionBar.SetTitle(Resource.String.Tasks);
+                        break;
+                    case Resource.Id.nav_home_4:
+                        SupportActionBar.SetTitle(Resource.String.Approvals);
+                        break;
+                    case Resource.Id.nav_home_5:
+                        SupportActionBar.SetTitle(Resource.String.Timesheet);
+                        break;
+                    case Resource.Id.nav_home_6:
+                        SupportActionBar.SetTitle(Resource.String.Settings);
+                        break;
+                    case Resource.Id.nav_home_7:
+                        
+                        break;
+                    
+                    
                 }
-
-                Snackbar.Make(drawerLayout, "You selected: " + e.MenuItem.TitleFormatted, Snackbar.LengthLong)
-                    .Show();
 
                 drawerLayout.CloseDrawers();
             };
 
             addItems = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            addItems.SetVisibility(ViewStates.Gone);
             addItems.Click += async delegate
             {
                 await addListItems();
@@ -100,21 +135,17 @@ namespace Practice1.Activities
             };
 
 
-            //if first time you will want to go ahead and click first item.
-            if (savedInstanceState == null)
-            {
-                SupportFragmentManager.BeginTransaction()
-               .Add(Resource.Id.content_frame, projects)
-               .AddToBackStack(null)
-               .Commit();
-            }
+            SupportFragmentManager.BeginTransaction()
+                .Add(Resource.Id.content_frame, home)
+                .Commit();
+
         }
-
-
 
         public async Task<Boolean> login()
         {
             authResult = await AuthenticationHelper.GetAccessToken(AuthenticationHelper.SharePointURL, new PlatformParameters(this));
+            mFullName.Text = authResult.UserInfo.GivenName + " " + authResult.UserInfo.FamilyName;
+            mEmail.Text = authResult.UserInfo.DisplayableId;
             return true;
         }
 
@@ -170,7 +201,6 @@ namespace Practice1.Activities
                 var result = await client.GetStringAsync(siteUrl+restUrl);
                 var data = JsonConvert.DeserializeObject<Practice1.Models.ListItemModels>(result);
                 myList = data;
-                
             }
             catch(Exception ex) {
                 var msg = "Unable to fetch list items. " + ex.Message;
@@ -186,7 +216,7 @@ namespace Practice1.Activities
             switch (position) {
                 case 0:
                      SupportFragmentManager.BeginTransaction()
-                    .Replace(Resource.Id.content_frame, projects)
+                    .Replace(Resource.Id.content_frame, home)
                     .AddToBackStack(null)
                     .Commit();
                     break;

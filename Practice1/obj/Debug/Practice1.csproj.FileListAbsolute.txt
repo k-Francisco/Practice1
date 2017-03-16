@@ -16,6 +16,7 @@ E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.Office365.Discovery.
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.Office365.SharePoint.Portable.dll
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.Spatial.dll
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Newtonsoft.Json.dll
+E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.Controls.CircleImageView.dll
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.FloatingActionButton.dll
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\System.Spatial.dll
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
@@ -41,6 +42,7 @@ E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.OData.Core.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.OData.Edm.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.Spatial.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Newtonsoft.Json.xml
+E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.Controls.CircleImageView.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.FloatingActionButton.pdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.FloatingActionButton.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Refractored.FloatingActionButton.dll.mdb
@@ -141,6 +143,7 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\fragment2.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\main.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\nav_header.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\task_card.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\splash.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\values\colors.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\values\integers.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\values\strings.xml
@@ -167,8 +170,21 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-xhdpi\ic_menu.png
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-xxhdpi\ic_menu.png
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\plus.png
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\sample.jpeg
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\splogo.jpg
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\home_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\project_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\tasks_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\approvals_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\timesheet_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\settings_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\logout_nav.png
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable\menu_background_color.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\color\menu_text_color.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\fragment_home.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\R.cs.flag
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\uploadflags.txt
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\home_recycler.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\Practice1.csprojResolveAssemblyReference.cache
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Practice1.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Java.Interop.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.CSharp.dll.mdb
@@ -200,5 +216,7 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Runtime.
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Xml.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\fragment_project.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\project_recycler_grid.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\Practice1.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Practice1.dll.mdb
