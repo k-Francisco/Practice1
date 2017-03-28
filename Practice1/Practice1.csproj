@@ -175,11 +175,18 @@
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\home.cs" />
+    <Compile Include="Adapters\project.cs" />
+    <Compile Include="Adapters\resource.cs" />
     <Compile Include="Adapters\task.cs" />
+    <Compile Include="Adapters\task2.cs" />
     <Compile Include="Fragments\Approvals.cs" />
+    <Compile Include="Fragments\DeleteDialog.cs" />
+    <Compile Include="Fragments\EditDialog.cs" />
     <Compile Include="Fragments\Fragment1.cs" />
     <Compile Include="Fragments\Fragment2.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
+    <Compile Include="Fragments\ProjectFragment.cs" />
+    <Compile Include="Fragments\ResourceDialog.cs" />
     <Compile Include="Helper\AuthenticationHelper.cs" />
     <Compile Include="Models\MyTasks.cs" />
     <Compile Include="Models\RetrievablesModel.cs" />
@@ -264,7 +271,18 @@
     <AndroidResource Include="Resources\layout\home_recycler.xml" />
     <AndroidResource Include="Resources\layout\fragment_project.xml" />
     <AndroidResource Include="Resources\layout\project_recycler_grid.xml" />
-    <AndroidResource Include="Resources\drawable\rounded_textview.xml" />
+    <AndroidResource Include="Resources\drawable\rounded_textview.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\resource_proj.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\edit_proj.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\delete_proj.png" />
+    <AndroidResource Include="Resources\layout\resource_dialog.xml" />
+    <AndroidResource Include="Resources\layout\dialog_edit.xml" />
+    <AndroidResource Include="Resources\layout\dialog_delete.xml" />
+    <AndroidResource Include="Resources\layout\resource_recycler.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\spevonavback.jpg" />
+    <AndroidResource Include="Resources\layout\task_recycler.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

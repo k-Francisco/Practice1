@@ -40,9 +40,9 @@ namespace Practice1.Fragments
             mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
             mAdapter.itemClick += MAdapter_ItemClick;
 
-            for (int i = 0; i<myLists.D.Results.Length;i++) {
-                mPhotoAlbum.addPhotos(myLists.D.Results[i].Title, myLists.D.Results[i].TaskName, myLists.D.Results[i].Date, myLists.D.Results[i].HoursRendered);
-            }
+            //for (int i = 0; i<myLists.D.Results.Length;i++) {
+            //    mPhotoAlbum.addPhotos(myLists.D.Results[i].Title, myLists.D.Results[i].TaskName, myLists.D.Results[i].Date, myLists.D.Results[i].HoursRendered);
+            //}
 
             mRecyclerView.SetAdapter(mAdapter);
             
@@ -57,12 +57,13 @@ namespace Practice1.Fragments
         private void MAdapter_ItemClick(object sender, int position)
         {
             int photoNum = position + 1;
+            (Activity as MainActivity).switchFragment(3);
             Log.Info("adapter function","item clicked");
         }
 
         internal void addTasks()
         {
-            mPhotoAlbum.addPhotos("HelloWorld", "asdasd", "2017-03-23T07:00:00Z", "7");
+            mPhotoAlbum.addPhotos("HelloWorld");
             mAdapter.NotifyDataSetChanged();
         }
     }

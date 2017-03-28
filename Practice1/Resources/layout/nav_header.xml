@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="192dp"
-    android:background="?attr/colorPrimaryDark"
+    android:background="@drawable/spevonavback"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
     android:gravity="bottom">
 
 
-  <refractored.controls.CircleImageView
+  <ImageView
     android:id="@+id/civUserPic"
     android:layout_width="70dp"
     android:layout_height="70dp"
+      android:scaleType="centerCrop"
     android:src="@drawable/sample"/>
 
     <TextView

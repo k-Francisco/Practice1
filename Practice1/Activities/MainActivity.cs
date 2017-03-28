@@ -30,11 +30,18 @@ namespace Practice1.Activities
     public class MainActivity : BaseActivity
     {
         //setting statics
-        private static Fragment1 projects = new Fragment1();
-        private static Fragment2 tasks = new Fragment2();
+        private static Fragment1 tasks = new Fragment1();
+        private static Fragment2 tasks2 = new Fragment2();
         private static HomeFragment home = new HomeFragment();
+        private static ProjectFragment projects = new ProjectFragment();
         private static string siteUrl = "https://sharepointevo.sharepoint.com/sites/mobility";
         private static string restUrl = "/_api/web/lists/getbytitle('MobilePractice')/items";
+
+        //setting fragment dialogs
+        private static ResourceDialog resourceDialog = new ResourceDialog();
+        private static DeleteDialog deleteDialog = new DeleteDialog();
+        private static EditDialog editDialog = new EditDialog();
+
 
         //setting private views
         private TextView mFullName;
@@ -68,14 +75,14 @@ namespace Practice1.Activities
 
             init();
             await login();
-            await fetchItems();
-            projects.setParentActivity(myList);
+            //await fetchItems();
+            //dummy.setParentActivity(myList);
+            
         }
 
         private void init()
         {
-            
-
+   
             drawerLayout = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
             //Set hamburger items menu
@@ -105,6 +112,7 @@ namespace Practice1.Activities
                         SupportActionBar.SetTitle(Resource.String.Projects);
                         break;
                     case Resource.Id.nav_home_3:
+                        switchFragment(2);
                         SupportActionBar.SetTitle(Resource.String.Tasks);
                         break;
                     case Resource.Id.nav_home_4:
@@ -131,10 +139,15 @@ namespace Practice1.Activities
             addItems.Click += async delegate
             {
                 await addListItems();
-                projects.addTasks();
+                //dummy.addTasks();
             };
 
-
+            //add parent activity to fragments
+            projects.setParentActivity(this);
+            resourceDialog.setParentActivity(this);
+            editDialog.setParentActivity(this);
+            deleteDialog.setParentActivity(this);
+    
             SupportFragmentManager.BeginTransaction()
                 .Add(Resource.Id.content_frame, home)
                 .Commit();
@@ -147,6 +160,7 @@ namespace Practice1.Activities
             mFullName.Text = authResult.UserInfo.GivenName + " " + authResult.UserInfo.FamilyName;
             mEmail.Text = authResult.UserInfo.DisplayableId;
             return true;
+
         }
 
         protected async Task<Boolean> addListItems()
@@ -222,12 +236,50 @@ namespace Practice1.Activities
                     break;
                 case 1:
                      SupportFragmentManager.BeginTransaction()
-                    .Replace(Resource.Id.content_frame, tasks)
+                    .Replace(Resource.Id.content_frame, projects)
                     .AddToBackStack(null)
                     .Commit();
                     break;
+                case 2:
+                    SupportFragmentManager.BeginTransaction()
+                        .Replace(Resource.Id.content_frame, tasks)
+                        .AddToBackStack(null)
+                        .Commit();
+                    break;
+
+                case 3:
+                    SupportFragmentManager.BeginTransaction()
+                       .Replace(Resource.Id.content_frame, tasks2)
+                       .AddToBackStack(null)
+                       .Commit();
+                    SupportActionBar.SetWindowTitle("Project Name");
+                    break;
+                    
+
+                
             }
 
+        }
+
+        public void bringDialogs(int identifier)
+        {
+           //legend
+           //1 - Resource dialog
+           //2 = Edit dialog
+           //3 - DeleteD dialog
+
+            switch (identifier) {
+
+                case 1:resourceDialog.Show(SupportFragmentManager.BeginTransaction(), "resource dialog");
+                    break;
+
+                case 2:editDialog.Show(SupportFragmentManager.BeginTransaction(), "edit dialog");
+                    break;
+
+                case 3:deleteDialog.Show(SupportFragmentManager.BeginTransaction(), "delete dialog");
+                    break;
+
+            }
         }
 
         
@@ -239,6 +291,7 @@ namespace Practice1.Activities
                 case Android.Resource.Id.Home:
                     drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
                     return true;
+
             }
             return base.OnOptionsItemSelected(item);
         }

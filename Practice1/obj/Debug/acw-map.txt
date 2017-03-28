@@ -2,6 +2,14 @@ Practice1.Fragments.Approvals, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.App
 Practice1.Fragments.Approvals, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.Approvals
 Practice1.Fragments.Approvals;md512b5df8297c47d6e2d5e2528989b12d6.Approvals
 practice1.fragments.Approvals;md512b5df8297c47d6e2d5e2528989b12d6.Approvals
+Practice1.Fragments.DeleteDialog, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.DeleteDialog
+Practice1.Fragments.DeleteDialog, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.DeleteDialog
+Practice1.Fragments.DeleteDialog;md512b5df8297c47d6e2d5e2528989b12d6.DeleteDialog
+practice1.fragments.DeleteDialog;md512b5df8297c47d6e2d5e2528989b12d6.DeleteDialog
+Practice1.Fragments.EditDialog, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.EditDialog
+Practice1.Fragments.EditDialog, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.EditDialog
+Practice1.Fragments.EditDialog;md512b5df8297c47d6e2d5e2528989b12d6.EditDialog
+practice1.fragments.EditDialog;md512b5df8297c47d6e2d5e2528989b12d6.EditDialog
 Practice1.Fragments.Fragment1, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.Fragment1
 Practice1.Fragments.Fragment1, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.Fragment1
 Practice1.Fragments.Fragment1;md512b5df8297c47d6e2d5e2528989b12d6.Fragment1
@@ -14,6 +22,14 @@ Practice1.Fragments.HomeFragment, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.
 Practice1.Fragments.HomeFragment, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.HomeFragment
 Practice1.Fragments.HomeFragment;md512b5df8297c47d6e2d5e2528989b12d6.HomeFragment
 practice1.fragments.HomeFragment;md512b5df8297c47d6e2d5e2528989b12d6.HomeFragment
+Practice1.Fragments.ProjectFragment, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.ProjectFragment
+Practice1.Fragments.ProjectFragment, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.ProjectFragment
+Practice1.Fragments.ProjectFragment;md512b5df8297c47d6e2d5e2528989b12d6.ProjectFragment
+practice1.fragments.ProjectFragment;md512b5df8297c47d6e2d5e2528989b12d6.ProjectFragment
+Practice1.Fragments.ResourceDialog, Practice1;md512b5df8297c47d6e2d5e2528989b12d6.ResourceDialog
+Practice1.Fragments.ResourceDialog, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md512b5df8297c47d6e2d5e2528989b12d6.ResourceDialog
+Practice1.Fragments.ResourceDialog;md512b5df8297c47d6e2d5e2528989b12d6.ResourceDialog
+practice1.fragments.ResourceDialog;md512b5df8297c47d6e2d5e2528989b12d6.ResourceDialog
 Practice1.Adapters.HomeViewHolder, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.HomeViewHolder
 Practice1.Adapters.HomeViewHolder, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.HomeViewHolder
 Practice1.Adapters.HomeViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.HomeViewHolder
@@ -22,6 +38,22 @@ Practice1.Adapters.HomeAdapter, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.Ho
 Practice1.Adapters.HomeAdapter, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.HomeAdapter
 Practice1.Adapters.HomeAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.HomeAdapter
 practice1.adapters.HomeAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.HomeAdapter
+Practice1.Adapters.ProjectViewHolder, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectViewHolder
+Practice1.Adapters.ProjectViewHolder, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectViewHolder
+Practice1.Adapters.ProjectViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectViewHolder
+practice1.adapters.ProjectViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectViewHolder
+Practice1.Adapters.ProjectAdaper, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectAdaper
+Practice1.Adapters.ProjectAdaper, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectAdaper
+Practice1.Adapters.ProjectAdaper;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectAdaper
+practice1.adapters.ProjectAdaper;md5e50dc77c3f40b3be237274035a0fe7e7.ProjectAdaper
+Practice1.Adapters.ResourceViewHolder, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceViewHolder
+Practice1.Adapters.ResourceViewHolder, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceViewHolder
+Practice1.Adapters.ResourceViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceViewHolder
+practice1.adapters.ResourceViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceViewHolder
+Practice1.Adapters.ResourceAdapter, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceAdapter
+Practice1.Adapters.ResourceAdapter, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceAdapter
+Practice1.Adapters.ResourceAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceAdapter
+practice1.adapters.ResourceAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.ResourceAdapter
 Practice1.Adapters.PhotoViewHolder, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoViewHolder
 Practice1.Adapters.PhotoViewHolder, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoViewHolder
 Practice1.Adapters.PhotoViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoViewHolder
@@ -30,6 +62,14 @@ Practice1.Adapters.PhotoAlbumAdapter, Practice1;md5e50dc77c3f40b3be237274035a0fe
 Practice1.Adapters.PhotoAlbumAdapter, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoAlbumAdapter
 Practice1.Adapters.PhotoAlbumAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoAlbumAdapter
 practice1.adapters.PhotoAlbumAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.PhotoAlbumAdapter
+Practice1.Adapters.Task2ViewHolder, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.Task2ViewHolder
+Practice1.Adapters.Task2ViewHolder, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.Task2ViewHolder
+Practice1.Adapters.Task2ViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.Task2ViewHolder
+practice1.adapters.Task2ViewHolder;md5e50dc77c3f40b3be237274035a0fe7e7.Task2ViewHolder
+Practice1.Adapters.TaskAdapter, Practice1;md5e50dc77c3f40b3be237274035a0fe7e7.TaskAdapter
+Practice1.Adapters.TaskAdapter, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5e50dc77c3f40b3be237274035a0fe7e7.TaskAdapter
+Practice1.Adapters.TaskAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.TaskAdapter
+practice1.adapters.TaskAdapter;md5e50dc77c3f40b3be237274035a0fe7e7.TaskAdapter
 Practice1.Activities.MainActivity, Practice1;md51ac77611d4a3253ca6acbb22893ed677.MainActivity
 Practice1.Activities.MainActivity, Practice1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md51ac77611d4a3253ca6acbb22893ed677.MainActivity
 Practice1.Activities.MainActivity;md51ac77611d4a3253ca6acbb22893ed677.MainActivity

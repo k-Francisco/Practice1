@@ -3,17 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="wrap_content"
     card_view:cardElevation="7dp"
     card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
         android:paddingBottom="16dp">
 
+        <LinearLayout
+            android:id="@+id/llHeader"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="#2980b9">
         <TextView
             android:id="@+id/tvProjectName"
             android:layout_width="wrap_content"
@@ -21,35 +26,101 @@
             android:text="Project Name"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
             android:layout_centerHorizontal="true"
-            android:paddingTop="8dp"/>
+            android:paddingTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="4dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_weight="2"/>
+
+        <ImageView
+            android:id="@+id/ivProjectResource"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/resource_proj"
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_textview"
+            android:elevation="8dp"
+            android:layout_weight=".01"/>
+
+            <ImageView
+                android:id="@+id/ivProjectEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/edit_proj"
+                android:background="@drawable/rounded_textview"
+                android:elevation="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight=".01"/>
+
+            <ImageView
+                android:id="@+id/ivProjectDelete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delete_proj"
+                android:background="@drawable/rounded_textview"
+                android:elevation="8dp"
+                android:layout_weight=".01"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llDates"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvProjectName">
+            android:layout_below="@+id/llHeader"
 
-            <TextView
-                android:id="@+id/tvProjectStartDate"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rounded_textview"
-                android:text="March 3, 2017"
-                android:textColor="#FFFFFF"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:gravity="center"/>
+            android:layout_marginTop="4dp">
 
-            <TextView
-                android:id="@+id/tvProjectEndDate"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_toRightOf="@+id/tvProjectStartDate"
-                android:background="@drawable/rounded_textview"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:text="Mar 3, 2017"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start Date"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:id="@+id/tvProjectStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="March 23, 1997"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End Date"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:id="@+id/tvProjectEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="March 23, 3011"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -57,34 +128,82 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llDates">
+            android:layout_below="@+id/llDates"
+            android:layout_marginTop="12dp">
 
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:background="@drawable/rounded_textview"
-                android:text="53%" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1">
 
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:background="@drawable/rounded_textview"
-                android:text="50 hours" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
 
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:background="@drawable/rounded_textview"
-                android:text="1 day" />
+                <TextView
+                    android:id="@+id/tvProjectPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="70%"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Work"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:id="@+id/tvProjectWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="60 hours"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Duration"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:id="@+id/tvProjectDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="1 month"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -95,27 +214,10 @@
             android:layout_height="wrap_content"
             android:text="lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsum"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            android:paddingTop="12dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             android:layout_below="@+id/llInfos"/>
-
-        <View
-            android:id="@+id/project_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#e8e8e8"
-            android:layout_below="@+id/tvProjectDescription"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"/>
-
-        <ImageView
-            android:id="@+id/civProjectManager"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/sample"
-            android:scaleType="centerCrop"
-            android:layout_below="@+id/project_divider"/>
-
-
-
 
     </RelativeLayout>
 

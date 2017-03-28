@@ -25,10 +25,10 @@ namespace Practice1.Adapters
         List<homeModel> listHome = new List<homeModel> {
             //Context context = this;
             //Android.Content.Res.Resources res = context.Resources
-        new homeModel() { notificationCaption = "@string/HomeProject", notificationTime = "10 hours ago", notificationIcon = Resource.Drawable.sample},
-        new homeModel() { notificationCaption = "@string/HomeTask", notificationTime = "5 mintues ago", notificationIcon = Resource.Drawable.sample},
-        new homeModel() { notificationCaption = "@string/HomeApprovedTimesheet", notificationTime = "just now", notificationIcon = Resource.Drawable.sample},
-        new homeModel() { notificationCaption = "@string/HomeRejectedTimesheet", notificationTime = "2 hours ago", notificationIcon = Resource.Drawable.sample}
+        new homeModel() { notificationCaption = "A new project needs you", notificationTime = "10 hours ago", notificationIcon = Resource.Drawable.sample},
+        new homeModel() { notificationCaption = "A new task has been assigned to you", notificationTime = "5 mintues ago", notificationIcon = Resource.Drawable.sample},
+        new homeModel() { notificationCaption = "A timesheet has been approved", notificationTime = "just now", notificationIcon = Resource.Drawable.sample},
+        new homeModel() { notificationCaption = "A timesheet has been rejected", notificationTime = "2 hours ago", notificationIcon = Resource.Drawable.sample}
         };
         Random random;
 
