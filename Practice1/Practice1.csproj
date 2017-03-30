@@ -189,6 +189,7 @@
     <Compile Include="Fragments\ResourceDialog.cs" />
     <Compile Include="Helper\AuthenticationHelper.cs" />
     <Compile Include="Models\MyTasks.cs" />
+    <Compile Include="Models\ProjectServer.cs" />
     <Compile Include="Models\RetrievablesModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

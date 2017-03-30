@@ -23,6 +23,7 @@ using Practice1.Adapters;
 using Practice1.Models;
 using Android.Util;
 using Android.Net;
+using System.Xml.Linq;
 
 namespace Practice1.Activities
 {
@@ -36,6 +37,8 @@ namespace Practice1.Activities
         private static ProjectFragment projects = new ProjectFragment();
         private static string siteUrl = "https://sharepointevo.sharepoint.com/sites/mobility";
         private static string restUrl = "/_api/web/lists/getbytitle('MobilePractice')/items";
+        private static string projectServerRestUrl = "/_api/ProjectServer/Projects";
+        private static string projectDataRestUrl = "/_api/ProjectData/Projects";
 
         //setting fragment dialogs
         private static ResourceDialog resourceDialog = new ResourceDialog();
@@ -48,7 +51,7 @@ namespace Practice1.Activities
         private TextView mEmail;
 
         //setting idk
-        ListItemModels myList;
+        RootObject myList;
         AuthenticationResult authResult;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
@@ -73,10 +76,13 @@ namespace Practice1.Activities
         {
             base.OnCreate(savedInstanceState);
 
+            
+            
             init();
             await login();
-            //await fetchItems();
-            //dummy.setParentActivity(myList);
+            await fetchItems();
+            await addProjects();
+            
             
         }
 
@@ -163,6 +169,25 @@ namespace Practice1.Activities
 
         }
 
+        protected async Task<string> GetFormDigest() {
+
+            HttpClient client = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage(
+                  HttpMethod.Post, siteUrl + "/_api/contextinfo");
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            string responseString = await response.Content.ReadAsStringAsync();
+
+            XNamespace d = "http://schemas.microsoft.com/ado/2007/08/dataservices";
+            var root = XElement.Parse(responseString);
+            var formDigestValue = root.Element(d + "FormDigestValue").Value;
+
+            return formDigestValue;
+        }
+
+
         protected async Task<Boolean> addListItems()
         {
 
@@ -183,7 +208,7 @@ namespace Practice1.Activities
 
             try
             {
-                var postResult = await client.PostAsync(siteUrl+restUrl, contents);
+                var postResult = await client.PostAsync(siteUrl + restUrl, contents);
                 var result = postResult.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     Toast.MakeText(this, "List item created succesfully", ToastLength.Long).Show();
@@ -196,11 +221,49 @@ namespace Practice1.Activities
                 Toast.MakeText(this, msg, ToastLength.Long).Show();
                 return false;
             }
+        }
 
 
+        protected async Task<Boolean> addProjects() {
+
+            var formDigest = await GetFormDigest();
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+            var mediaType = new MediaTypeWithQualityHeaderValue("application/json");
+            mediaType.Parameters.Add(new NameValueHeaderValue("odata", "verbose"));
+            //mediaType.Parameters.Add(new NameValueHeaderValue("X-RequestDigest",formDigest));
+            client.DefaultRequestHeaders.Accept.Add(mediaType);
+            
 
             
+
+
+            var body = "{'parameters': {'Name': 'kristian test', 'Description': 'ftwftwftw', 'EnterpriseProjectTypeId': '1d17f2a6-94ba-e611-80d4-00155d085606'} }";
+            var contents = new StringContent(body);
+            contents.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json;odata=verbose");
+
+            try {
+
+                var postResult = await client.PostAsync(siteUrl+projectServerRestUrl+"/Add", contents);
+                var result = postResult.EnsureSuccessStatusCode();
+                if(result.IsSuccessStatusCode)
+                    Toast.MakeText(this, "Project created succesfully", ToastLength.Long).Show();
+
+                Log.Info("add Project","naka create na");
+            }
+            catch (Exception ex) {
+
+                var msg = "Unable to create project. " + ex.Message;
+                Toast.MakeText(this, msg, ToastLength.Long).Show();
+
+                Log.Info("add Project", "wa ka create kay " + msg);
+            }
+
+            return true;
         }
+
+
 
         protected async Task<Boolean> fetchItems()
         {
@@ -212,9 +275,11 @@ namespace Practice1.Activities
 
             try
             {
-                var result = await client.GetStringAsync(siteUrl+restUrl);
-                var data = JsonConvert.DeserializeObject<Practice1.Models.ListItemModels>(result);
-                myList = data;
+                var result = await client.GetStringAsync(siteUrl+projectDataRestUrl);
+                Log.Info("Project JSON",result);
+                //var data = JsonConvert.DeserializeObject<Practice1.Models.RootObject>(result);
+                //myList = data;
+               
             }
             catch(Exception ex) {
                 var msg = "Unable to fetch list items. " + ex.Message;
@@ -222,8 +287,16 @@ namespace Practice1.Activities
                 Log.Info("resource id", msg);
             }
 
+            //for (int i = 0; i < myList.Feed.Entry.Count; i++)
+            //{
+            //    Log.Info("Project Lists", myList.Feed.Title.Text);
+            //}
+
             return true;
         }
+
+        
+
 
         public void switchFragment(int position) {
 
@@ -252,7 +325,6 @@ namespace Practice1.Activities
                        .Replace(Resource.Id.content_frame, tasks2)
                        .AddToBackStack(null)
                        .Commit();
-                    SupportActionBar.SetWindowTitle("Project Name");
                     break;
                     
 
