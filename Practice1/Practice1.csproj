@@ -284,6 +284,8 @@
     <AndroidResource Include="Resources\layout\resource_recycler.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\spevonavback.jpg" />
     <AndroidResource Include="Resources\layout\task_recycler.xml" />
+    <AndroidResource Include="Resources\layout\builder_add_project.xml" />
+    <AndroidResource Include="Resources\layout\date_picker.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

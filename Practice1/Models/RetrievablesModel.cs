@@ -284,9 +284,6 @@ namespace Practice1.Models
         [JsonProperty("Status")]
         public string Status { get; set; }
 
-        [JsonProperty("PercentComplete")]
-        public object PercentComplete { get; set; }
-
         [JsonProperty("AssignedToId")]
         public object AssignedToId { get; set; }
 
@@ -296,16 +293,28 @@ namespace Practice1.Models
         [JsonProperty("EstimatedHours")]
         public object EstimatedHours { get; set; }
 
-        //practice
-        [JsonProperty("TaskName")]
-        public string TaskName { get; set; }
+        //projects
+        [JsonProperty("Start")]
+        public string Start { get; set; }
 
-        [JsonProperty("Date")]
-        public string Date { get; set; }
+        [JsonProperty("Finish")]
+        public string Finish { get; set; }
 
-        [JsonProperty("HoursRendered")]
-        public string HoursRendered { get; set; }
-        //practice
+        [JsonProperty("percentComplete")]
+        public string percentComplete { get; set; }
+
+        [JsonProperty("Work")]
+        public string Work { get; set; }
+
+        [JsonProperty("Duration")]
+        public string Duration { get; set; }
+
+        [JsonProperty("Owner")]
+        public string Owner { get; set; }
+
+        [JsonProperty("LastPublished")]
+        public string LastPublished { get; set; }
+        //projects
 
 
         [JsonProperty("TaskGroupId")]

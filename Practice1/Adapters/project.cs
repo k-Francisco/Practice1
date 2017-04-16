@@ -33,21 +33,13 @@ namespace Practice1.Adapters
 
         
 
-        List<projectModel> listProjects = new List<projectModel> {
-            
-            new projectModel() { mProjectName = "SharepointApp", mStartDate = "March 23, 2017", mEndDate = "March 23, 3011", mPercent = "100%", mWork = "300 hours", mDuration = " 1 week" },
-            new projectModel() { mProjectName = "SharepointApp", mStartDate = "March 23, 2017", mEndDate = "March 23, 3011", mPercent = "100%", mWork = "300 hours", mDuration = " 1 week" },
-            new projectModel() { mProjectName = "SharepointApp", mStartDate = "March 23, 2017", mEndDate = "March 23, 3011", mPercent = "100%", mWork = "300 hours", mDuration = " 1 week" },
-            new projectModel() { mProjectName = "SharepointApp", mStartDate = "March 23, 2017", mEndDate = "March 23, 3011", mPercent = "100%", mWork = "300 hours", mDuration = " 1 week" },
-            new projectModel() { mProjectName = "SharepointApp", mStartDate = "March 23, 2017", mEndDate = "March 23, 3011", mPercent = "100%", mWork = "300 hours", mDuration = " 1 week" },
-
-        };
+        List<projectModel> listProjects = new List<projectModel> {};
 
         public project() {}
 
-        public void addProject() {
+        public void addProject(string projectName, string start, string end, string percent, string work, string duration) {
 
-            
+            listProjects.Add( new projectModel() { mProjectName = projectName, mStartDate = start, mEndDate = end, mPercent = percent, mWork = work, mDuration = duration});
         }
 
         public int numHome

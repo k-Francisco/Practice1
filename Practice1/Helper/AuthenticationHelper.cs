@@ -30,8 +30,12 @@ namespace Practice1.Helper
             if (authContext.TokenCache.ReadItems().Any())
                 authContext = new AuthenticationContext(authContext.TokenCache.ReadItems().First().Authority);
             var authResult = await authContext.AcquireTokenAsync(serviceResourceId, clientId, returnUri, param);
+            
             return authResult;
         }
+
+        //public static async Task<AuthenticationResult> RemoveAccessToken(AuthenticationResult authResult) { 
+        //}
 
     }
 }

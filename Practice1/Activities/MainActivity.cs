@@ -27,7 +27,7 @@ using System.Xml.Linq;
 
 namespace Practice1.Activities
 {
-    [Activity(Label = "Home", Theme ="@style/MyTheme")]
+    [Activity(Label = "Home", Theme = "@style/MyTheme")]
     public class MainActivity : BaseActivity
     {
         //setting statics
@@ -36,8 +36,8 @@ namespace Practice1.Activities
         private static HomeFragment home = new HomeFragment();
         private static ProjectFragment projects = new ProjectFragment();
         private static string siteUrl = "https://sharepointevo.sharepoint.com/sites/mobility";
-        private static string restUrl = "/_api/web/lists/getbytitle('MobilePractice')/items";
-        private static string projectServerRestUrl = "/_api/ProjectServer/Projects";
+        private static string restUrl = "/_api/web/lists/getbytitle('Projects')/items";
+        private static string projectServerRestUrl = "/_api/ProjectServer/Projects";    
         private static string projectDataRestUrl = "/_api/ProjectData/Projects";
 
         //setting fragment dialogs
@@ -51,12 +51,12 @@ namespace Practice1.Activities
         private TextView mEmail;
 
         //setting idk
-        RootObject myList;
+        ListItemModels projectsList;
         AuthenticationResult authResult;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
         FloatingActionButton addItems;
-        
+
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -76,19 +76,22 @@ namespace Practice1.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            
-            
+
+
             init();
             await login();
             await fetchItems();
-            await addProjects();
-            
-            
+            //await fetchPractice();
+            //await addProjects();
+            //await checkInProject();
+            //await checkOutProject();
+
+
         }
 
         private void init()
         {
-   
+
             drawerLayout = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
             //Set hamburger items menu
@@ -99,7 +102,7 @@ namespace Practice1.Activities
             navigationView.SetCheckedItem(Resource.Id.nav_home_1);
             mFullName = navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.tvHeaderFullName);
             mEmail = navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.tvHeaderEmail);
-            
+
 
 
             //handle navigation
@@ -116,6 +119,8 @@ namespace Practice1.Activities
                     case Resource.Id.nav_home_2:
                         switchFragment(1);
                         SupportActionBar.SetTitle(Resource.String.Projects);
+                        addItems.SetVisibility(ViewStates.Visible);
+                        FabFunctions(1);
                         break;
                     case Resource.Id.nav_home_3:
                         switchFragment(2);
@@ -131,10 +136,10 @@ namespace Practice1.Activities
                         SupportActionBar.SetTitle(Resource.String.Settings);
                         break;
                     case Resource.Id.nav_home_7:
-                        
+
                         break;
-                    
-                    
+
+
                 }
 
                 drawerLayout.CloseDrawers();
@@ -142,22 +147,87 @@ namespace Practice1.Activities
 
             addItems = FindViewById<FloatingActionButton>(Resource.Id.fab);
             addItems.SetVisibility(ViewStates.Gone);
-            addItems.Click += async delegate
-            {
-                await addListItems();
-                //dummy.addTasks();
-            };
+           
 
             //add parent activity to fragments
-            projects.setParentActivity(this);
             resourceDialog.setParentActivity(this);
             editDialog.setParentActivity(this);
             deleteDialog.setParentActivity(this);
-    
+
             SupportFragmentManager.BeginTransaction()
                 .Add(Resource.Id.content_frame, home)
                 .Commit();
 
+        }
+
+        private void FabFunctions(int v)
+        {
+            string projectName = "", start = "", end = "", percent = "", work = "", duration = "";
+            EditText mProjectName, mStart, mEnd, mPercent, mWork, mDuration;
+            DatePicker mDatePicker;
+            DateTime today;
+            
+            
+
+            switch (v) {
+
+                case 1:
+                    addItems.Click += delegate {
+                        View view = LayoutInflater.Inflate(Resource.Layout.builder_add_project, null);
+                        Android.App.AlertDialog builder = new Android.App.AlertDialog.Builder(this).Create();
+                        builder.SetView(view);
+                  
+
+                        mProjectName = view.FindViewById<EditText>(Resource.Id.builderProjectName);
+                        mStart = view.FindViewById<EditText>(Resource.Id.builderStart);
+                        mEnd = view.FindViewById<EditText>(Resource.Id.builderEnd);
+                        mPercent = view.FindViewById<EditText>(Resource.Id.builderProgress);
+                        mWork = view.FindViewById<EditText>(Resource.Id.builderWork);
+                        mDuration = view.FindViewById<EditText>(Resource.Id.builderDuration);
+
+
+                        builder.SetCanceledOnTouchOutside(false);
+                        builder.SetButton2("Submit", async delegate
+                        {
+                            projectName = mProjectName.Text;
+                            start = mStart.Text;
+                            end = mEnd.Text;
+                            percent = mPercent.Text + " %";
+                            work = mWork.Text + " hrs";
+                            duration = mDuration.Text + " day(s)";
+                            await addListItems(projectName, start, end, percent, work, duration);
+                            
+                        }); 
+                        builder.SetButton3("Cancel", delegate { builder.Dismiss(); });
+
+
+                        mStart.Click += (sender, e) =>{
+
+                           Android.Support.V7.App.AlertDialog builder2 = new Android.Support.V7.App.AlertDialog.Builder(this).Create();
+                            View view2 = LayoutInflater.Inflate(Resource.Layout.date_picker, null);
+                            builder2.SetView(view2);
+
+                            mDatePicker = FindViewById<DatePicker>(Resource.Id.datePicker);
+
+                            builder2.SetButton(-1,"OK", delegate {
+                                //mStart.Text = mDatePicker.Month + "/" + mDatePicker.DayOfMonth + "/" + mDatePicker.Year;
+                            });
+                            builder2.SetButton(-2, "Cancel", delegate { });
+                            builder2.Show();
+                        };
+
+
+
+                        builder.Show();
+                    };
+
+                    
+
+                    //addItems.Click += async delegate { await addListItems(projectName, start, end, percent, work, duration); };
+                    break;
+
+            }
+         
         }
 
         public async Task<Boolean> login()
@@ -188,7 +258,7 @@ namespace Practice1.Activities
         }
 
 
-        protected async Task<Boolean> addListItems()
+        protected async Task<Boolean> addListItems(string projectName, string start, string end, string percent, string work, string duration)
         {
 
             var client = new HttpClient();
@@ -197,11 +267,23 @@ namespace Practice1.Activities
             mediaType.Parameters.Add(new NameValueHeaderValue("odata", "verbose"));
             client.DefaultRequestHeaders.Accept.Add(mediaType);
 
-            var projectName = "HelloWorld";
-            var taskName = "asdasd";
-            var date = "2017-03-23T07:00:00Z";
-            var hoursRendered = 7;
-            var body = "{\"__metadata\":{\"type\":\"SP.Data.MobilePracticeListItem\"},\"Title\":\"" + projectName + "\",\"TaskName\": \"" + taskName + "\",\"Date\": \"" + date + "\",\"HoursRendered\": \"" + hoursRendered + "\"}";
+
+            //var body = "{\"__metadata\":{\"type\":\"SP.Data.ProjectsListItem\"},\"Title\":\"" + projectName + "\",\"_x0025_Complete\": \"" + percent + "\",\"Work\": \"" + work + "\",\"Duration\": \"" + duration + "\"}";
+            //var body = "{\"__metadata\":{\"type\":\"SP.Data.ProjectsListItem\"},\"Title\":\"" + projectName +
+            //    "\",\"Start\": \"" + start +
+            //    "\",\"Finish\": \"" + end +
+            //    "\",\"percentComplete\": \"" + percent +
+            //    "\",\"Work\": \"" + work +
+            //    "\",\"Duration\": \"" + duration +
+            //    "\"}";
+
+            var body = "{\"__metadata\":{\"type\":\"SP.Data.ProjectsListItem\"},\"Title\":\"" + projectName +
+                "\",\"percentComplete\": \"" + percent +
+                "\",\"Work\": \"" + work +
+                "\",\"Duration\": \"" + duration +
+                "\"}";
+
+
             var contents = new StringContent(body);
             contents.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json;odata=verbose");
 
@@ -212,7 +294,7 @@ namespace Practice1.Activities
                 var result = postResult.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     Toast.MakeText(this, "List item created succesfully", ToastLength.Long).Show();
-
+                projects.addProject(projectName, start, end, percent, work, duration);
                 return true;
             }
             catch (Exception ex)
@@ -221,6 +303,7 @@ namespace Practice1.Activities
                 Toast.MakeText(this, msg, ToastLength.Long).Show();
                 return false;
             }
+
         }
 
 
@@ -234,9 +317,9 @@ namespace Practice1.Activities
             mediaType.Parameters.Add(new NameValueHeaderValue("odata", "verbose"));
             //mediaType.Parameters.Add(new NameValueHeaderValue("X-RequestDigest",formDigest));
             client.DefaultRequestHeaders.Accept.Add(mediaType);
-            
 
-            
+
+
 
 
             var body = "{'parameters': {'Name': 'kristian test', 'Description': 'ftwftwftw', 'EnterpriseProjectTypeId': '1d17f2a6-94ba-e611-80d4-00155d085606'} }";
@@ -245,12 +328,12 @@ namespace Practice1.Activities
 
             try {
 
-                var postResult = await client.PostAsync(siteUrl+projectServerRestUrl+"/Add", contents);
+                var postResult = await client.PostAsync(siteUrl + projectServerRestUrl + "/Add", contents);
                 var result = postResult.EnsureSuccessStatusCode();
-                if(result.IsSuccessStatusCode)
+                if (result.IsSuccessStatusCode)
                     Toast.MakeText(this, "Project created succesfully", ToastLength.Long).Show();
 
-                Log.Info("add Project","naka create na");
+                Log.Info("add Project", "naka create na");
             }
             catch (Exception ex) {
 
@@ -264,6 +347,66 @@ namespace Practice1.Activities
         }
 
 
+        protected async Task<Boolean> checkInProject() {
+            var rest = "/_api/ProjectServer/Projects/('10003')/Draft/CheckIn()";
+            var formDigest = await GetFormDigest();
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, siteUrl + rest);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+            
+
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Toast.MakeText(this, "success siya", ToastLength.Short);
+                Log.Info("check in", "success");
+            }
+            else
+            {
+                Toast.MakeText(this, "wa jd ka", ToastLength.Short);
+                
+                Log.Info("check in", "failed kay " + response.StatusCode.ToString());
+            }
+
+
+            return true;
+        }
+
+        public async Task<Boolean> checkOutProject() {
+
+            var rest = "/_api/ProjectServer/Projects/('10003')/CheckOut()";
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, siteUrl + rest);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Toast.MakeText(this, "success siya", ToastLength.Short);
+                Log.Info("check out", "success");
+            }
+            else
+            {
+                Toast.MakeText(this, "wa jd ka", ToastLength.Short);
+                Log.Info("check out", "failed kay "+ response.StatusCode.ToString());
+            }
+
+            return true;
+        }
+
+
+
+
 
         protected async Task<Boolean> fetchItems()
         {
@@ -275,11 +418,11 @@ namespace Practice1.Activities
 
             try
             {
-                var result = await client.GetStringAsync(siteUrl+projectDataRestUrl);
+                var result = await client.GetStringAsync(siteUrl+restUrl);
                 Log.Info("Project JSON",result);
-                //var data = JsonConvert.DeserializeObject<Practice1.Models.RootObject>(result);
-                //myList = data;
-               
+                var data = JsonConvert.DeserializeObject<Practice1.Models.ListItemModels>(result);
+                projectsList = data;
+
             }
             catch(Exception ex) {
                 var msg = "Unable to fetch list items. " + ex.Message;
@@ -287,15 +430,8 @@ namespace Practice1.Activities
                 Log.Info("resource id", msg);
             }
 
-            //for (int i = 0; i < myList.Feed.Entry.Count; i++)
-            //{
-            //    Log.Info("Project Lists", myList.Feed.Title.Text);
-            //}
-
             return true;
         }
-
-        
 
 
         public void switchFragment(int position) {
@@ -352,6 +488,10 @@ namespace Practice1.Activities
                     break;
 
             }
+        }
+
+        public ListItemModels getList() {
+            return projectsList;
         }
 
         

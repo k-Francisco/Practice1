@@ -31,7 +31,7 @@ namespace Practice1.Activities
             SetContentView(Resource.Layout.splash);
 
 
-            mConnectionStatus = FindViewById<TextView>(Resource.Id.tvLoading);
+            mConnectionStatus = FindViewById<TextView>(Resource.Id.tvLoadingSplash);
 
             ThreadPool.QueueUserWorkItem(delegate (object state) {
 

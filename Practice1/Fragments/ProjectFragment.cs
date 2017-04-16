@@ -13,6 +13,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using Practice1.Adapters;
 using Practice1.Activities;
+using Practice1.Models;
 
 namespace Practice1.Fragments
 {
@@ -23,7 +24,9 @@ namespace Practice1.Fragments
         RecyclerView.LayoutManager mLayoutManager;
         project mProject;
         ProjectAdaper mProjectAdapter;
-        MainActivity main;
+        ListItemModels projectList;
+        
+
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,7 +44,20 @@ namespace Practice1.Fragments
             mRecyclerView = rootView.FindViewById<RecyclerView>(Resource.Id.rvProject);
             mLayoutManager = new LinearLayoutManager(rootView.Context);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-            mProjectAdapter = new ProjectAdaper(mProject, main);
+
+
+            projectList = (Activity as MainActivity).getList();
+            for (int i = 0; i < projectList.D.Results.Length; i++) {
+                mProject.addProject(
+                    projectList.D.Results[i].Title,
+                    projectList.D.Results[i].Start,
+                    projectList.D.Results[i].Finish,
+                    projectList.D.Results[i].percentComplete,
+                    projectList.D.Results[i].Work,
+                    projectList.D.Results[i].Duration);
+            }
+
+            mProjectAdapter = new ProjectAdaper(mProject, (Activity as MainActivity));
             mProjectAdapter.itemClick += MAdapter_ItemClick;
             mRecyclerView.SetAdapter(mProjectAdapter);
 
@@ -55,9 +71,12 @@ namespace Practice1.Fragments
             Log.Info("Project Notification", "item clicked at position " + e);
         }
 
-        internal void setParentActivity(MainActivity mainActivity)
-        {
-            this.main = mainActivity;
+        public void addProject(string projectName, string start, string end, string percent, string work, string duration) {
+
+            mProject.addProject(projectName, start, end, percent, work, duration);
+            mProjectAdapter.NotifyDataSetChanged();
         }
+
+        
     }
 }

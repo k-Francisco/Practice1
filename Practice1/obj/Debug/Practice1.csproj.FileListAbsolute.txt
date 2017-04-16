@@ -181,8 +181,6 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\logout_nav.p
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable\menu_background_color.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\color\menu_text_color.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\fragment_home.xml
-E:\Xamarin Projects\Practice1\Practice1\obj\Debug\R.cs.flag
-E:\Xamarin Projects\Practice1\Practice1\obj\Debug\uploadflags.txt
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\home_recycler.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\fragment_project.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\project_recycler_grid.xml
@@ -195,6 +193,12 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\dialog_edit.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\dialog_delete.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\resource_recycler.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\drawable-hdpi\spevonavback.jpg
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\task_recycler.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\builder_add_project.xml
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\R.cs.flag
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\uploadflags.txt
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\Practice1.csprojResolveAssemblyReference.cache
+E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\date_picker.xml
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Practice1.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Java.Interop.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Microsoft.CSharp.dll.mdb
@@ -226,7 +230,5 @@ E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Runtime.
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Xml.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-E:\Xamarin Projects\Practice1\Practice1\obj\Debug\Practice1.csprojResolveAssemblyReference.cache
-E:\Xamarin Projects\Practice1\Practice1\obj\Debug\res\layout\task_recycler.xml
 E:\Xamarin Projects\Practice1\Practice1\obj\Debug\Practice1.dll.mdb
 E:\Xamarin Projects\Practice1\Practice1\bin\Debug\Practice1.dll.mdb

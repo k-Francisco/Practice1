@@ -1,10 +1,15 @@
-﻿<Properties StartupConfiguration="{0393D583-541C-43B7-8693-ABD7B6548E6F}|Default">
+﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.Practice1 AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.DeviceDefault" PreferredExecutionTarget="Android.G4AXGV2855703NG" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Practice1\Resources\layout\dialog_delete.xml">
+    <Files>
+      <File FileName="Practice1\Activities\MainActivity.cs" Line="39" Column="88" />
+      <File FileName="Practice1\Resources\layout\dialog_delete.xml" Line="43" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
 </Properties>
